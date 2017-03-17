@@ -2,7 +2,10 @@
 
 function swalExtend(params){
     params.classNames = params.classNames || [];
-
+    if(params.swalFunction === undefined) {
+      swal("swalExtend", "No sweetalert function specified.", "error");
+      return;
+    }
     if(params.buttonNum < 1){
       swal("swalExtend", "Need at least one more button. Got a number less than 1.", "error" );
       return;
@@ -19,6 +22,9 @@ function swalExtend(params){
       swal("swalExtend", "Number of classNames in list is longer that intended buttons", "error");
       return;
     }
+    
+    params.swalFunction();
+    
     if(params.hasCancelButton){
       var container = document.querySelector(".sa-button-container");
       var cancel = document.querySelector(".cancel");
@@ -45,6 +51,6 @@ function swalExtend(params){
    if(params.hasCancelButton){
       container.appendChild(c);
     }
-
   };
+  params.swalFunction();
 };
