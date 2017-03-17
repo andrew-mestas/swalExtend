@@ -2,6 +2,8 @@
 
 An extender for SweetAlert buttons. Allows you to add more than two buttons. 
 
+3/17/2017 - Recent update. Need to reference a function which calls swal.
+
 ## How to Use
 
 1. Specify how many buttons you want
@@ -15,16 +17,34 @@ Note: SweetAlerts' callback function will still work for the original two button
 ## Example
 ```javascript
 
- swalExtend({
-    buttonNum: 2,
-    buttonNames: ["Another Option", "Cool button"],
-    className: ["redButton", "blueButton"],
-    hasCancelButton: true,
-    clickFunctionList: [ 
-      function(){
-        some cool red button function...
-      }, 
-      function(){
-        some cool button function...
-      }]
+var swalFunction = function(){ 
+  swal({
+      title: "Are you sure?",
+      text: "You will not be able to recover this imaginary file!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Yes, delete it!",
+      closeOnConfirm: false
+    },
+    function(){
+      swal("Deleted!", "Your imaginary file has been deleted.", "success");
     });
+};
+
+$("button").click(function() {    
+    swalExtend({
+        swalFunction: swalFunction,
+        hasCancelButton: true,
+        buttonNum: 2,
+        buttonNames: ["maybe delete", "probably/partially delete"],
+        clickFunctionList: [
+            function() {
+                console.debug('ONE BUTTON');
+            }, 
+            function() {
+                console.debug('TWO BUTTON');
+            }
+        ]
+    });
+  });
