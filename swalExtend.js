@@ -45,16 +45,23 @@
             document.getElementsByClassName("sa-button-container")[0].appendChild(cln);
 
             var t = document.getElementsByClassName("confirm")[i+1];
-            if(t!= undefined){
-              t.innerHTML = params.buttonNames[i] || t.innerHTML;
-              var cl = t.className;
+            var div = document.createElement("div");
+            div.className = t.className;
+            div.style.cssText = t.style.cssText;
+            div.innerHTML = t.innerHTML;
+            t.parentNode.replaceChild(div, t);
+             
+            if(div!= undefined){
+              div.innerHTML = params.buttonNames[i] || div.innerHTML;
+              var cl = div.className;
               var add = params.classNames[i] == undefined ? "" : params.classNames[i];
-              t.className = cl + " " + add + " swalExtendButton";
+              div.className = cl + " divbutton " + add + " swalExtendButton";
             }
 
             if(params.clickFunctionList[i]){
-              t.addEventListener("click", params.clickFunctionList[i]);
-              t.addEventListener("click", function(){
+              div.addEventListener("click", params.clickFunctionList[i]);
+              div.addEventListener("click", function(){
+                sweetAlert.close();
                 $(".swalExtendButton").hide();
               })
             }
