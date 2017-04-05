@@ -3,8 +3,12 @@
 An extender for SweetAlert buttons. Allows you to add more than two buttons. 
 
 3/17/2017 - Recent update. Need to reference a function which calls swal.
+4/5/2017  - Fixed issue with click functions.
 
 ## How to Use
+
+    <script src="swalExtend.js"></script>
+    <link rel="stylesheet" type="text/css" href="swalExtend.css">
 
 1. Specify how many buttons you want
 2. Give an array of button titles
