@@ -1,0 +1,62 @@
+.sweet-alert .divbutton {
+  background-color: #8cd4f5;
+  color: white;
+  border: 0;
+  box-shadow: none;
+  font-size: 17px;
+  font-weight: 500;
+  -webkit-border-radius: 4px;
+  border-radius: 5px;
+  padding: 10px 32px;
+  margin: 26px 5px 0 5px;
+  cursor: pointer
+}
+
+.sweet-alert .divbutton:focus {
+  outline: 0;
+  box-shadow: 0 0 2px rgba(128,179,235,0.5),inset 0 0 0 1px rgba(0,0,0,0.05)
+}
+
+.sweet-alert .divbutton:hover {
+  background-color: #7ecff4
+}
+
+.sweet-alert .divbutton:active {
+  background-color: #5dc2f1
+}
+
+.sweet-alert .divbutton.cancel {
+  background-color: #c1c1c1
+}
+
+.sweet-alert .divbutton.cancel:hover {
+  background-color: #b9b9b9
+}
+
+.sweet-alert .divbutton.cancel:active {
+  background-color: #a8a8a8
+}
+
+.sweet-alert .divbutton.cancel:focus {
+  box-shadow: rgba(197,205,211,0.8) 0 0 2px,rgba(0,0,0,0.0470588) 0 0 0 1px inset !important
+}
+
+.sweet-alert .divbutton[disabled] {
+  opacity: .6;
+  cursor: default
+}
+
+.sweet-alert .divbutton.confirm[disabled] {
+  color: transparent
+}
+
+.sweet-alert .divbutton.confirm[disabled] ~ .la-ball-fall {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0
+}
+
+.sweet-alert .divbutton::-moz-focus-inner {
+  border: 0
+}
+
