@@ -55,7 +55,7 @@
               div.innerHTML = params.buttonNames[i] || div.innerHTML;
               var cl = div.className;
               var add = params.classNames[i] == undefined ? "" : params.classNames[i];
-              div.className = cl + " divbutton " + add + " swalExtendButton";
+              div.className = params.classNames[i] == undefined ? cl + " divbutton " + add + " swalExtendButton" : "confirm " + add + " divbutton swalExtendButton";
             }
 
             if(params.clickFunctionList[i]){
