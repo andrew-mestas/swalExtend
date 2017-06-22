@@ -3,7 +3,10 @@
 An extender for SweetAlert buttons. Allows you to add more than two buttons. 
 
 3/17/2017 - Recent update. Need to reference a function which calls swal.
+
 4/5/2017  - Fixed issue with click functions.
+
+6/22/2017 - Added individual color options, new params for function parameters, removed hasCallBack.
 
 ## How to Use
 
@@ -41,6 +44,7 @@ $("button").click(function() {
         swalFunction: swalFunction,
         hasCancelButton: true,
         buttonNum: 2,
+        buttonColor: ["blue", "green"]
         buttonNames: ["maybe delete", "probably/partially delete"],
         clickFunctionList: [
             function() {
