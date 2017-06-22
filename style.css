@@ -1,0 +1,22 @@
+body{
+  text-align: center;
+  font-size: 14px;
+  background-color: #DBE3E6;
+}
+h1{
+  font-family: 'Pacifico', cursive;
+  font-size: 6em;
+  color: #252E40;
+  line-height: 2.0em;
+}
+button{
+  background-color: #F16669;
+  border: none;
+  padding: 15px 20px;
+  color: white;
+  font-size: 2em;
+  margin-top: 40px;
+  transition: 1s;
+  cursor: pointer;
+  border-radius: 4px;
+}

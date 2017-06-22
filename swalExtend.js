@@ -2,6 +2,8 @@
 
     function swalExtend(params){
         params.classNames = params.classNames || [];
+        params.swalFunctionParams = params.swalFunctionParams || [];
+
         if(params.swalFunction === undefined) {
           swal("swalExtend", "No sweetalert function specified.", "error");
           return;
@@ -19,14 +21,25 @@
           return;
         }
         if(params.classNames.length > params.buttonNames.length){
-          swal("swalExtend", "Number of classNames in list is longer that intended buttons", "error");
+          swal("swalExtend", "Number of classNames in list is longer that intended buttons.", "error");
           return;
         }
-        if(params.hasCallback === undefined){
-          swal("swalExtend", "hasCallback property is not defined.", "error");
-          return;
+        if(params.buttonColor === undefined){
+          params.buttonColor = null;
+        } 
+        else if(typeof(params.buttonColor) === "object" && params.buttonColor.length) {
+          if(params.buttonColor.length === params.buttonNum){
+            this.buttonColorArray = true;
+          } else {
+            swal("swalExtend", "Number of button colors does not match button length.", "error");
+            return;
+          }
+        } 
+        else if(typeof(params.buttonColor) === "string"){
+          this.buttonColorArray = false;
         }
-        params.swalFunction();
+
+        params.swalFunction.apply(this, params.swalFunctionParams);
 
         $(".confirm").on('click', function(){
           $(".swalExtendButton").hide();
@@ -56,6 +69,12 @@
               var cl = div.className;
               var add = params.classNames[i] == undefined ? "" : params.classNames[i];
               div.className = params.classNames[i] == undefined ? cl + " divbutton " + add + " swalExtendButton" : "confirm " + add + " divbutton swalExtendButton";
+              if(this.buttonColorArray){
+                div.style.backgroundColor = params.buttonColor[i] ? params.buttonColor[i] : "#DD6B55";
+              } 
+              else {
+                div.style.backgroundColor = params.buttonColor ? params.buttonColor : "#DD6B55";
+              }
             }
 
             if(params.clickFunctionList[i]){
@@ -70,7 +89,7 @@
           container.appendChild(c);
         }
       };
-      params.swalFunction();
+      params.swalFunction.apply(this, params.swalFunctionParams);
       $(".swalExtendButton").show();
     };
 
