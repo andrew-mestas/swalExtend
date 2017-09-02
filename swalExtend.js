@@ -78,7 +78,13 @@
             }
 
             if(params.clickFunctionList[i]){
-              div.addEventListener("click", params.clickFunctionList[i]);
+              div.addEventListener("click", function(x) {
+                var input = "";
+                if (typeof params.type != "undefined" && params.type == "input") {
+                  input = document.querySelector(".sweet-alert > fieldset > input").value;
+                }
+                params.clickFunctionList[x](input);
+              }.bind(null, i));
               div.addEventListener("click", function(){
                 if (typeof params.closeOnConfirm == "undefined" || params.closeOnConfirm) {
                   sweetAlert.close();
