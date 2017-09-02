@@ -80,7 +80,9 @@
             if(params.clickFunctionList[i]){
               div.addEventListener("click", params.clickFunctionList[i]);
               div.addEventListener("click", function(){
-                sweetAlert.close();
+                if (typeof params.closeOnConfirm == "undefined" || params.closeOnConfirm) {
+                  sweetAlert.close();
+                }
                 $(".swalExtendButton").hide();
               })
             }
