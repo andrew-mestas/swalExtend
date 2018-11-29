@@ -8,6 +8,8 @@ An extender for SweetAlert buttons. Allows you to add more than two buttons.
 
 6/22/2017 - Added individual color options, new params for function parameters, removed hasCallBack.
 
+11/28/2018 - Wow long time, but not forgotten! - Added option to stop sweet alert closing on confirm from Samuel1989
+
 ## How to Use
 
     <script src="swalExtend.js"></script>
